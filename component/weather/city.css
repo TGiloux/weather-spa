@@ -13,8 +13,11 @@
 .city-info p {
   margin: 0;
 }
-.city-info h2 {
+.city-info h3 {
   margin: 0;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis ellipsis;
 }
 
 .city-title {
@@ -34,4 +37,11 @@
 .sun img {
   width: 24px;
   height: 24px;
+}
+
+.sun-container {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  gap: 5px;
 }

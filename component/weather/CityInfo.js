@@ -13,17 +13,19 @@ export default class CityInfo {
     return `
     <div class="city-info">
       <div class="city-title">
-        <h2>${this.name}, </h2>
+        <h3>${this.name}, </h3>
         <p>${this.country}</p>
       </div>
       <p>Elevation: ${this.elevation}m</p>
-      <div class="sun"> 
-      <img src="../ressources/sunrise.svg" alt="Sunrise">
-        <p>${this.sunrise} </p>
-      </div>
-      <div class="sun"> 
-      <img src="../ressources/sunset.svg" alt="Sunset">
-        <p>${this.sunset} </p>
+      <div class="sun-container">
+        <div class="sun"> 
+        <img src="../ressources/sunrise.svg" alt="Sunrise">
+          <p>${this.sunrise} </p>
+        </div>
+        <div class="sun"> 
+        <img src="../ressources/sunset.svg" alt="Sunset">
+          <p>${this.sunset} </p>
+        </div>
       </div>
     </div>`;
   }
