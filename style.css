@@ -15,8 +15,6 @@ body {
   );
 
   background-attachment: fixed;
-  width: 100dvw;
-  height: 100dvh;
   margin: 0;
   overflow-x: hidden;
 }
@@ -27,6 +25,7 @@ body {
   width: 300px;
 }
 
+/* remove zomm in zomm out buttons */
 .leaflet-control {
   display: none;
 }

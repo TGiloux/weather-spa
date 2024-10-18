@@ -1,4 +1,5 @@
-export { displayCityWeather, getCityByCoords };
+export { displayCityWeather, getCityByCoords, getCityByName };
+import { cleanCityName } from "../utils/Utils.js";
 import PrevisionMeteo from "./weather/PrevisionMeteo.js";
 
 async function getCityByCoords() {
@@ -10,29 +11,45 @@ async function getCityByCoords() {
       `https://nominatim.openstreetmap.org/reverse?lat=${latInput.value}&lon=${lngInput.value}&format=json`
     );
     const data = await response.json();
-    console.log(data);
-    console.log(data.address.city);
-    console.log(data.address.village);
+    // closest city name is either city, village or town
+    const cityName =
+      data.address.city || data.address.village || data.address.town;
+    const cleanedCityName = cleanCityName(cityName);
+    let success = await displayCityWeather(cleanedCityName);
+    if (!success) {
+      // Some cities have the same name, so we add the postcode
+      const CodedCityName = `${cleanedCityName}-${data.address.postcode[0]}${data.address.postcode[1]}`;
+      success = await displayCityWeather(CodedCityName);
+      if (!success) {
+        alert("Failed to retrieve weather information.");
+      }
+    }
   } catch (err) {
     console.error(err);
   }
 }
 
-async function displayCityWeather() {
+async function getCityByName() {
   const cityInput = document.getElementById("city-input");
-  const weather = new PrevisionMeteo(cityInput.value);
-  try {
-    const data = await weather.initFetch();
-    weather.display(data);
+  displayCityWeather(cityInput.value);
+  cityInput.value = "";
+}
 
-    document.querySelectorAll(".weather-condition").forEach((day) => {
-      day.addEventListener("click", displayHourly);
+async function displayCityWeather(city) {
+  const weather = new PrevisionMeteo(city);
+  return weather
+    .initFetch()
+    .then((response) => {
+      if (response.errors) {
+        return false;
+      }
+      weather.display(response);
+      return true;
+    })
+    .catch((err) => {
+      console.error(err);
+      return false;
     });
-    cityInput.value = "";
-  } catch (err) {
-    console.error(err);
-    alert("City not found!");
-  }
 }
 
 function displayHourly(event) {
