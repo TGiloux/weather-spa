@@ -5,13 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Application météo</title>
-    <script src="App.js" type="module" defer></script>
+
     <link rel="stylesheet" href="style.css" />
+    <script src="App.js" type="module" defer></script>
+
+    <!-- Map with leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
   </head>
   <body>
+    <div id="map"></div>
+    <div class="menu" id="map-menu">
+      <input type="number" id="lat-input" placeholder="latitude" />
+      <input type="number" id="lng-input" placeholder="longitude" />
+      <button type="button" id="fetch-by-latlng">afficher</button>
+    </div>
     <div class="menu" id="menu">
-      <input type="text" id="city-input" />
-      <button type="button" id="fetch-city-button">afficher</button>
+      <input type="text" id="city-input" placeholder="City name" />
+      <button type="button" id="fetch-by-name">afficher</button>
     </div>
     <div id="data"></div>
   </body>

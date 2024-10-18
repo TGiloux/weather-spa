@@ -1,7 +1,13 @@
 import PrevisionMeteo from "./component/PrevisionMeteo.js";
-
+import displayMap from "./Map.js";
 window.addEventListener("load", () => {
-  const cityButton = document.getElementById("fetch-city-button");
+  displayMap();
+  buttonListeners();
+  stickyMenu();
+});
+
+function buttonListeners() {
+  const cityButton = document.getElementById("fetch-by-name");
   const cityInput = document.getElementById("city-input");
   cityButton.addEventListener("click", displayWeeklyWeather);
   cityInput.addEventListener("keypress", (event) => {
@@ -9,18 +15,20 @@ window.addEventListener("load", () => {
       displayWeeklyWeather();
     }
   });
+}
 
+function stickyMenu() {
   document.addEventListener("scroll", () => {
     const stickyDiv = document.getElementById("menu");
-
-    // Check if the div is at the top (sticking)
-    if (window.scrollY >= stickyDiv.offsetTop - 2) {
+    const offset = 2;
+    // Check if the div is at the top (sticking) with offset so it doesn't flicker
+    if (window.scrollY >= stickyDiv.offsetTop - offset) {
       stickyDiv.classList.add("sticky-active");
     } else {
       stickyDiv.classList.remove("sticky-active");
     }
   });
-});
+}
 
 async function displayWeeklyWeather() {
   const cityInput = document.getElementById("city-input");
