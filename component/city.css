@@ -1,0 +1,37 @@
+.city-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: black;
+  background-color: #eb8317;
+  gap: 10px;
+  border-radius: 10px;
+  width: 150px;
+  padding: 10px;
+}
+
+.city-info p {
+  margin: 0;
+}
+.city-info h2 {
+  margin: 0;
+}
+
+.city-title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.sun {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.sun img {
+  width: 24px;
+  height: 24px;
+}
