@@ -24,16 +24,18 @@
     ></script>
   </head>
   <body>
+    <div class="menu-container" id="menu-container">
+      <div class="menu" id="menu">
+        <input type="text" id="city-input" placeholder="City name" />
+        <button type="button" id="fetch-by-name">afficher</button>
+      </div>
+      <div class="menu" id="map-menu">
+        <input type="number" id="lat-input" placeholder="latitude" />
+        <input type="number" id="lng-input" placeholder="longitude" />
+        <button type="button" id="fetch-by-coord">afficher</button>
+      </div>
+    </div>
     <div id="map"></div>
-    <div class="menu" id="map-menu">
-      <input type="number" id="lat-input" placeholder="latitude" />
-      <input type="number" id="lng-input" placeholder="longitude" />
-      <button type="button" id="fetch-by-latlng">afficher</button>
-    </div>
-    <div class="menu" id="menu">
-      <input type="text" id="city-input" placeholder="City name" />
-      <button type="button" id="fetch-by-name">afficher</button>
-    </div>
     <div id="data"></div>
   </body>
 </html>

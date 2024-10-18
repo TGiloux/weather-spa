@@ -1,25 +1,31 @@
-.menu {
+.menu-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding-top: 8px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  border-radius: 10px;
-  width: 100%;
-  transition: background-color 0.3s ease; /* Smooth background transition */
-}
+  z-index: 10000;
 
-.sticky-active {
+  width: 100dvw;
+  transition: background-color 0.3s ease; /* Smooth background transition */
+
   /* From https://css.glass */
   background: rgba(247, 232, 232, 0);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(247, 232, 232, 0.28);
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 .menu input {
