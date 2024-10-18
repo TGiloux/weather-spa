@@ -21,7 +21,7 @@ async function getCityByCoords() {
       const CodedCityName = `${cleanedCityName}-${data.address.postcode[0]}${data.address.postcode[1]}`;
       success = await displayCityWeather(CodedCityName);
       if (!success) {
-        alert("Failed to retrieve weather information.");
+        alert(`Failed to retrieve weather information for ${cleanedCityName}.`);
         return;
       }
     }

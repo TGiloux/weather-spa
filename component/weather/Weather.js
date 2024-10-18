@@ -13,6 +13,7 @@ export default class Weather {
     weatherDiv.className = "weekly-weather";
     this.displayCity(this.parseCityInfo(response), weatherDiv);
     this.displayDays(this.parseDays(response), weatherDiv);
+    dataDiv.innerHTML = ""; //if we want only one city
     dataDiv.appendChild(weatherDiv);
   }
   displayCity(cityInfo, container) {
