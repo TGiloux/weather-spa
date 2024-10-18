@@ -1,6 +1,6 @@
 export { displayCityWeather, getCityByCoords, getCityByName };
-import { cleanCityName } from "../utils/Utils.js";
-import PrevisionMeteo from "./weather/PrevisionMeteo.js";
+import { cleanCityName } from "../../utils/Utils.js";
+import PrevisionMeteo from "./PrevisionMeteo.js";
 
 async function getCityByCoords() {
   const latInput = document.getElementById("lat-input");
@@ -22,8 +22,11 @@ async function getCityByCoords() {
       success = await displayCityWeather(CodedCityName);
       if (!success) {
         alert("Failed to retrieve weather information.");
+        return;
       }
     }
+    latInput.value = "";
+    lngInput.value = "";
   } catch (err) {
     console.error(err);
   }

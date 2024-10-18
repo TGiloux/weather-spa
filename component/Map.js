@@ -15,7 +15,7 @@ export default function displayMap() {
       }
     });
     L.circle(e.latlng, {
-      radius: 20000,
+      radius: 5000,
       color: "red",
       weight: 1,
     }).addTo(map);

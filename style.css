@@ -1,6 +1,6 @@
 @import "./component/weather/city.css";
 @import "./component/weather/weather.css";
-@import "./component/menu.css";
+@import "./menu.css";
 
 body {
   font-family: Arial, sans-serif;

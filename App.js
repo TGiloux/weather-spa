@@ -2,13 +2,13 @@ import displayMap from "./component/Map.js";
 import {
   getCityByCoords,
   getCityByName,
-} from "./component/WeatherDisplayHandler.js";
+} from "./component/weather/WeatherDisplayHandler.js";
 window.addEventListener("load", () => {
   displayMap();
-  buttonListeners();
+  addButtonListeners();
 });
 
-function buttonListeners() {
+function addButtonListeners() {
   const cityButton = document.getElementById("fetch-by-name");
   cityButton.addEventListener("click", getCityByName);
   const cityInput = document.getElementById("city-input");
