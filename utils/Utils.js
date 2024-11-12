@@ -1,6 +1,6 @@
 export { cleanCityName };
 
-// Remove accents and prefixes from city names
+// AI generated prompt : Remove accents and "le ", "la " prefixes from city names
 function cleanCityName(cityName) {
   return cityName
     .toLowerCase()

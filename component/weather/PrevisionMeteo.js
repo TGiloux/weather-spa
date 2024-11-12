@@ -2,6 +2,7 @@ import Weather from "./Weather.js";
 import WeatherCondition from "./WeatherCondition.js";
 import CityInfo from "./CityInfo.js";
 
+//Using the API from prevision-meteo.ch
 export default class PrevisionMeteo extends Weather {
   constructor(city) {
     super(city);

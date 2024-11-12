@@ -5,7 +5,10 @@ export default class Weather {
   }
   async initFetch() {}
 
+  // parseCityInfo and parseDays are methods that parse the response from the API
+  // they have to be implemented in the Weather subclass
   parseDays(response) {}
+  parseCityInfo(response) {}
 
   display(response) {
     const dataDiv = document.getElementById("data");

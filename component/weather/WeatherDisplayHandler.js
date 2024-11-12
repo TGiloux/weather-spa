@@ -34,7 +34,9 @@ async function getCityByCoords() {
 
 async function getCityByName() {
   const cityInput = document.getElementById("city-input");
-  displayCityWeather(cityInput.value);
+  if (!(await displayCityWeather(cityInput.value))) {
+    alert(`Failed to retrieve weather information for ${cityInput.value}.`);
+  }
   cityInput.value = "";
 }
 
